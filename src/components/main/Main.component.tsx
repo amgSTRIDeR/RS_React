@@ -1,6 +1,7 @@
 import React from 'react';
 import { MainProps } from '../../shared/interfaces';
 import CharacterComponent from '../character/Character.component';
+import './Main.css';
 
 class Main extends React.Component<MainProps> {
   constructor(props: MainProps) {
@@ -9,7 +10,7 @@ class Main extends React.Component<MainProps> {
 
   render() {
     return (
-      <div>
+      <div className="main">
         {this.props.characters.length ? (
           this.props.characters.map(({ id, name, status, species, image }) => (
             <CharacterComponent
