@@ -5,6 +5,7 @@ import Main from './components/main/Main.component';
 import CharactersService from './API/CharactersService';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary.component';
 import { AppState } from './shared/interfaces';
+import ErrorPage from './components/errorPage/ErrorPage.component';
 
 class App extends React.Component<object, AppState> {
   constructor(props: object) {
@@ -35,7 +36,7 @@ class App extends React.Component<object, AppState> {
 
   render() {
     return (
-      <ErrorBoundary fallback={<p>Something went wrong</p>}>
+      <ErrorBoundary fallback={<ErrorPage />}>
         <Header
           onSearch={this.updateCharacters}
           searchFilter={this.state.searchFilter}
