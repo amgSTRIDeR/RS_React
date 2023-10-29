@@ -8,7 +8,13 @@ class ErrorPage extends React.Component {
         <h1 className="errorPage__title">
           I am not in control of that situation at all!
         </h1>
-        <img src="/20-minutes-adventure-after.gif" alt="" />
+        <img
+          onClick={() => window.location.reload()}
+          className="errorPage__image"
+          src="/20-minutes-adventure-after.gif"
+          alt=""
+        />
+        <p className="errorPage__text">^^^ Start over in a new universe? ^^^</p>
       </div>
     );
   }
