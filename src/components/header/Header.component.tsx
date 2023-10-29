@@ -1,6 +1,7 @@
 import React, { ChangeEvent, FormEvent } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
 import { HeaderProps, HeaderState } from '../../shared/interfaces';
+import './Header.css';
 
 class Header extends React.Component<HeaderProps, HeaderState> {
   constructor(props: HeaderProps) {
@@ -39,14 +40,17 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <div>
         <ErrorButton showTestError={this.showTestError} />
-        <form onSubmit={this.handleSearchSubmit}>
+        <form className="searchForm" onSubmit={this.handleSearchSubmit}>
           <input
+            className="searchInput"
             type="text"
-            placeholder="search"
+            placeholder="wanted dead or alive"
             value={this.state.searchFilter}
             onChange={this.handleSearchChange}
           ></input>
-          <button type="submit">Search</button>
+          <button className="searchButton" type="submit">
+            Search
+          </button>
         </form>
       </div>
     );

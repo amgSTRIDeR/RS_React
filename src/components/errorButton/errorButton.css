@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   max-width: 400px;
-  margin: 0 auto 10px auto;
+  margin: 10px auto 10px auto;
 }
 
 .errorButton__image {
@@ -29,4 +29,5 @@
 }
 
 .errorButton__text {
+  user-select: none;
 }

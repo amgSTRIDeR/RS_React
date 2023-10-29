@@ -9,17 +9,15 @@ class ErrorButton extends React.Component<ErrorButtonProps> {
 
   render() {
     return (
-      <div
-        className="errorButton__container"
-        onClick={this.props.showTestError}
-      >
+      <div className="errorButton__container">
         <img
+          onClick={this.props.showTestError}
           className="errorButton__image"
           src="/20-minutes-adventure-before.gif"
           alt=""
         />
         <p className="errorButton__text">
-          &#x2191; click to error test &#x2191;
+          &#x2191; click to call an error &#x2191;
         </p>
       </div>
     );
