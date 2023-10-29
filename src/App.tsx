@@ -13,7 +13,17 @@ class App extends React.Component {
     };
   }
 
+  componentDidMount() {
+    const localSearchFilter = localStorage.getItem('searchFilter');
+    if (localSearchFilter) {
+      this.updateCharacters(localSearchFilter);
+    } else {
+      this.updateCharacters('');
+    }
+  }
+
   updateCharacters = (filter: string) => {
+    localStorage.setItem('searchFilter', filter);
     this.setState({ searchFilter: filter }, () => {
       CharactersService.getCharacters(filter).then((foundCharacters) =>
         this.setState({ characters: foundCharacters })
@@ -24,7 +34,10 @@ class App extends React.Component {
   render() {
     return (
       <>
-        <Header onSearch={this.updateCharacters} />
+        <Header
+          onSearch={this.updateCharacters}
+          searchFilter={this.state.searchFilter}
+        />
         <Main characters={this.state.characters} />
       </>
     );

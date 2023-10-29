@@ -4,8 +4,14 @@ class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      searchFilter: '',
+      searchFilter: this.props.searchFilter,
     };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (this.props.searchFilter !== prevProps.searchFilter) {
+      this.setState({ searchFilter: this.props.searchFilter });
+    }
   }
 
   handleSearchChange = (event) => {
