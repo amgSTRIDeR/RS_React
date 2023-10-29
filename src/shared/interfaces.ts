@@ -38,6 +38,12 @@ interface Character {
   status: string;
   species: string;
   image: string;
+  location: {
+    name: string;
+  };
+  origin: {
+    name: string;
+  };
 }
 
 interface CharacterProps extends Omit<Character, 'id'> {

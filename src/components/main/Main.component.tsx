@@ -12,15 +12,19 @@ class Main extends React.Component<MainProps> {
     return (
       <div className="main">
         {this.props.characters.length ? (
-          this.props.characters.map(({ id, name, status, species, image }) => (
-            <CharacterComponent
-              key={id}
-              name={name}
-              status={status}
-              species={species}
-              image={image}
-            />
-          ))
+          this.props.characters.map(
+            ({ id, name, status, species, image, location, origin }) => (
+              <CharacterComponent
+                key={id}
+                name={name}
+                status={status}
+                species={species}
+                image={image}
+                location={location}
+                origin={origin}
+              />
+            )
+          )
         ) : (
           <p>Characters not found</p>
         )}
