@@ -1,0 +1,32 @@
+.errorButton__container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  margin: 0 auto 10px auto;
+}
+
+.errorButton__image {
+  width: 70%;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  margin-bottom: 5px;
+}
+
+.errorButton__image:hover {
+  box-shadow: 0 0 10px 5px #fdfffc;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  scale: 1.01;
+}
+
+.errorButton__image:active {
+  box-shadow: 0 0 5x 10px #fdfffc;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  scale: 0.99;
+}
+
+.errorButton__text {
+}

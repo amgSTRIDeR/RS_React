@@ -38,6 +38,7 @@ class Header extends React.Component<HeaderProps, HeaderState> {
     }
     return (
       <div>
+        <ErrorButton showTestError={this.showTestError} />
         <form onSubmit={this.handleSearchSubmit}>
           <input
             type="text"
@@ -47,7 +48,6 @@ class Header extends React.Component<HeaderProps, HeaderState> {
           ></input>
           <button type="submit">Search</button>
         </form>
-        <ErrorButton showTestError={this.showTestError} />
       </div>
     );
   }
