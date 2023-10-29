@@ -1,5 +1,5 @@
 import React from 'react';
-import Character from '../character/Character';
+import Character from '../character/Character.component';
 
 class Main extends React.Component {
   constructor(props) {
@@ -7,7 +7,6 @@ class Main extends React.Component {
   }
 
   render() {
-    console.log(this.props.characters);
     return (
       <div>
         {this.props.characters.length ? (

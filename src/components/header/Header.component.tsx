@@ -1,10 +1,12 @@
 import React from 'react';
+import ErrorButton from '../errorButton/ErrorButton.component';
 
 class Header extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       searchFilter: this.props.searchFilter,
+      testError: false,
     };
   }
 
@@ -23,7 +25,16 @@ class Header extends React.Component {
     this.props.onSearch(this.state.searchFilter);
   };
 
+  showTestError = () => {
+    this.setState({ testError: true });
+  };
+
   render() {
+    {
+      if (this.state.testError) {
+        throw new Error('Intentional error in the render method');
+      }
+    }
     return (
       <div>
         <form onSubmit={this.handleSearchSubmit}>
@@ -35,6 +46,7 @@ class Header extends React.Component {
           ></input>
           <button type="submit">Search</button>
         </form>
+        <ErrorButton showTestError={this.showTestError} />
       </div>
     );
   }

@@ -1,8 +1,9 @@
 import './App.css';
 import React from 'react';
-import Header from './components/header/Header';
-import Main from './components/main/Main';
+import Header from './components/header/Header.component';
+import Main from './components/main/Main.component';
 import CharactersService from './API/CharactersService';
+import ErrorBoundary from './components/errorBoundary/ErrorBoundary.component';
 
 class App extends React.Component {
   constructor(props) {
@@ -33,13 +34,13 @@ class App extends React.Component {
 
   render() {
     return (
-      <>
+      <ErrorBoundary fallback={<p>Something went wrong</p>}>
         <Header
           onSearch={this.updateCharacters}
           searchFilter={this.state.searchFilter}
         />
         <Main characters={this.state.characters} />
-      </>
+      </ErrorBoundary>
     );
   }
 }
