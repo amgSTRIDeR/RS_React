@@ -1,12 +1,19 @@
 import React from 'react';
+import {
+  ErrorBoundaryProps,
+  ErrorBoundaryState,
+} from '../../shared/interfaces';
 
-class ErrorBoundary extends React.Component {
-  constructor(props) {
+class ErrorBoundary extends React.Component<
+  ErrorBoundaryProps,
+  ErrorBoundaryState
+> {
+  constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
   }
 
-  static getDerivedStateFromError(error) {
+  static getDerivedStateFromError(error: React.ErrorInfo) {
     console.error(`Error: ${error}`);
     return { hasError: true };
   }

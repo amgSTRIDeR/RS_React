@@ -1,8 +1,9 @@
 import React from 'react';
-import Character from '../character/Character.component';
+import { MainProps } from '../../shared/interfaces';
+import CharacterComponent from '../character/Character.component';
 
-class Main extends React.Component {
-  constructor(props) {
+class Main extends React.Component<MainProps> {
+  constructor(props: MainProps) {
     super(props);
   }
 
@@ -10,8 +11,14 @@ class Main extends React.Component {
     return (
       <div>
         {this.props.characters.length ? (
-          this.props.characters.map(({ id, name, status, species }) => (
-            <Character key={id} name={name} status={status} species={species} />
+          this.props.characters.map(({ id, name, status, species, image }) => (
+            <CharacterComponent
+              key={id}
+              name={name}
+              status={status}
+              species={species}
+              image={image}
+            />
           ))
         ) : (
           <p>Characters not found</p>

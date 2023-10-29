@@ -4,9 +4,10 @@ import Header from './components/header/Header.component';
 import Main from './components/main/Main.component';
 import CharactersService from './API/CharactersService';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary.component';
+import { AppState } from './shared/interfaces';
 
-class App extends React.Component {
-  constructor(props) {
+class App extends React.Component<object, AppState> {
+  constructor(props: object) {
     super(props);
     this.state = {
       searchFilter: '',

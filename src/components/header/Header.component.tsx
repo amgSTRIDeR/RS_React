@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { ChangeEvent, FormEvent } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
+import { HeaderProps, HeaderState } from '../../shared/interfaces';
 
-class Header extends React.Component {
-  constructor(props) {
+class Header extends React.Component<HeaderProps, HeaderState> {
+  constructor(props: HeaderProps) {
     super(props);
     this.state = {
       searchFilter: this.props.searchFilter,
@@ -10,17 +11,17 @@ class Header extends React.Component {
     };
   }
 
-  componentDidUpdate(prevProps) {
+  componentDidUpdate(prevProps: HeaderProps) {
     if (this.props.searchFilter !== prevProps.searchFilter) {
       this.setState({ searchFilter: this.props.searchFilter });
     }
   }
 
-  handleSearchChange = (event) => {
+  handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     this.setState({ searchFilter: event.target.value });
   };
 
-  handleSearchSubmit = (event) => {
+  handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     this.props.onSearch(this.state.searchFilter);
   };

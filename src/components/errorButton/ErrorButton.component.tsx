@@ -1,16 +1,14 @@
 import React from 'react';
-import ErrorBoundary from '../errorBoundary/ErrorBoundary.component';
+import { ErrorButtonProps } from '../../shared/interfaces';
 
-class ErrorButton extends React.Component {
-  constructor(props) {
+class ErrorButton extends React.Component<ErrorButtonProps> {
+  constructor(props: ErrorButtonProps) {
     super(props);
   }
 
   render() {
     return (
-      <ErrorBoundary>
-        <button onClick={this.props.showTestError}>Click to test Error</button>
-      </ErrorBoundary>
+      <button onClick={this.props.showTestError}>Click to test Error</button>
     );
   }
 }

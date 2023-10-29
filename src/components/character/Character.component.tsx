@@ -1,7 +1,8 @@
 import React from 'react';
+import { CharacterProps } from '../../shared/interfaces';
 
-class Character extends React.Component {
-  constructor(props) {
+class CharacterComponent extends React.Component<CharacterProps> {
+  constructor(props: CharacterProps) {
     super(props);
   }
   render() {
@@ -10,9 +11,10 @@ class Character extends React.Component {
         <h1>{this.props.name}</h1>
         <p>{this.props.status}</p>
         <p>{this.props.species}</p>
+        <img src={this.props.image} alt={this.props.name} />
       </div>
     );
   }
 }
 
-export default Character;
+export default CharacterComponent;
