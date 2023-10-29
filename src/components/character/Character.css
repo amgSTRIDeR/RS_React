@@ -18,8 +18,8 @@
 
 .character__image {
   width: 90%;
+  align-self: center;
   border-radius: 5px;
-  margin-bottom: 10px;
 }
 
 .character__text {
