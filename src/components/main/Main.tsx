@@ -1,28 +1,21 @@
 import React from 'react';
 import Character from '../character/Character';
-import CharactersService from '../../API/CharactersService';
 
 class Main extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
-  }
-
-  async componentDidMount() {
-    const characters = await CharactersService.getCharacters('');
-    this.setState(characters);
   }
 
   render() {
-    const data = Object.values(this.state);
+    console.log(this.props.characters);
     return (
       <div>
-        {data.length ? (
-          data.map(({ id, name, status, species }) => (
+        {this.props.characters.length ? (
+          this.props.characters.map(({ id, name, status, species }) => (
             <Character key={id} name={name} status={status} species={species} />
           ))
         ) : (
-          <p>sdfserf</p>
+          <p>Characters not found</p>
         )}
       </div>
     );
