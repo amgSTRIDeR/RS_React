@@ -19,6 +19,7 @@ class CharacterComponent extends React.Component<CharacterProps> {
           <span className="character__text">Species</span>:&nbsp;
           {this.props.species}
         </p>
+
         <p>
           <span className="character__text">Origin</span>:&nbsp;
           {this.props.origin.name}

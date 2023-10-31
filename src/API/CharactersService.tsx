@@ -1,8 +1,11 @@
 import axios from 'axios';
 
 export default class CharactersService {
+  static isLoading = false;
+
   static async getCharacters(filter: string) {
-    const characters = axios
+    this.isLoading = true;
+    const characters = await axios
       .get(`https://rickandmortyapi.com/api/character?name=${filter}`)
       .then((response) => {
         return response.data.results;
@@ -13,6 +16,7 @@ export default class CharactersService {
         );
         return [];
       });
+    this.isLoading = false;
     return characters;
   }
 }
