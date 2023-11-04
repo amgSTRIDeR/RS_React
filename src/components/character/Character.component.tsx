@@ -1,6 +1,7 @@
 import React from 'react';
 import { CharacterProps } from '../../shared/interfaces';
 import './Character.css';
+import Image from '../image/Image.component';
 
 class CharacterComponent extends React.Component<CharacterProps> {
   constructor(props: CharacterProps) {
@@ -9,7 +10,7 @@ class CharacterComponent extends React.Component<CharacterProps> {
   render() {
     return (
       <div className="character">
-        <img
+        <Image
           className="character__image"
           src={`https://rickandmortyapi.com/api/character/avatar/${this.props.id}.jpeg`}
           alt={this.props.name}

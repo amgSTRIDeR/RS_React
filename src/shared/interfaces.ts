@@ -46,6 +46,12 @@ interface CharacterProps extends Character {
   key: number;
 }
 
+interface ImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+}
+
 export type {
   AppState,
   MainProps,
@@ -56,4 +62,5 @@ export type {
   ErrorButtonProps,
   ErrorBoundaryProps,
   ErrorBoundaryState,
+  ImageProps,
 };
