@@ -1,60 +1,45 @@
-import React, { ChangeEvent, FormEvent } from 'react';
+import { ChangeEvent, FormEvent, useState } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
-import { HeaderProps, HeaderState } from '../../shared/interfaces';
+import { HeaderProps } from '../../shared/interfaces';
 import './Header.css';
 
-class Header extends React.Component<HeaderProps, HeaderState> {
-  constructor(props: HeaderProps) {
-    super(props);
-    this.state = {
-      searchFilter: this.props.searchFilter,
-      testError: false,
-    };
-  }
+const Header = (props: HeaderProps) => {
+  const [searchFilter, setSearchFilter] = useState(props.searchFilter);
+  const [testError, setTestError] = useState(false);
 
-  componentDidUpdate(prevProps: HeaderProps) {
-    if (this.props.searchFilter !== prevProps.searchFilter) {
-      this.setState({ searchFilter: this.props.searchFilter });
-    }
-  }
-
-  handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    this.setState({ searchFilter: event.target.value });
+  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setSearchFilter(event.target.value);
   };
 
-  handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    this.props.onSearch(this.state.searchFilter);
+    props.onSearch(searchFilter);
   };
 
-  showTestError = () => {
-    this.setState({ testError: true });
+  const showTestError = () => {
+    setTestError(true);
   };
 
-  render() {
-    {
-      if (this.state.testError) {
-        throw new Error('Intentional error in the render method');
-      }
-    }
-    return (
-      <div>
-        <ErrorButton showTestError={this.showTestError} />
-        <form className="searchForm" onSubmit={this.handleSearchSubmit}>
-          <input
-            className="searchInput"
-            type="text"
-            placeholder="wanted dead or alive"
-            value={this.state.searchFilter}
-            onChange={this.handleSearchChange}
-          ></input>
-          <button className="searchButton" type="submit">
-            Search
-          </button>
-        </form>
-      </div>
-    );
+  if (testError) {
+    throw new Error('Intentional error in the render method');
   }
-}
+  return (
+    <div>
+      <ErrorButton showTestError={showTestError} />
+      <form className="searchForm" onSubmit={handleSearchSubmit}>
+        <input
+          className="searchInput"
+          type="text"
+          placeholder="wanted dead or alive"
+          value={searchFilter}
+          onChange={handleSearchChange}
+        ></input>
+        <button className="searchButton" type="submit">
+          Search
+        </button>
+      </form>
+    </div>
+  );
+};
 
 export default Header;

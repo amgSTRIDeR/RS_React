@@ -27,11 +27,6 @@ interface ErrorBoundaryState {
   hasError: boolean;
 }
 
-interface HeaderState {
-  searchFilter: string;
-  testError: boolean;
-}
-
 interface Character {
   id: number;
   name: string;
@@ -58,7 +53,6 @@ export type {
   Character,
   CharacterProps,
   HeaderProps,
-  HeaderState,
   ErrorButtonProps,
   ErrorBoundaryProps,
   ErrorBoundaryState,
