@@ -5,10 +5,11 @@ export default class CharactersService {
 
   static async getCharacters(filter: string) {
     this.isLoading = true;
+    const name = filter ? `?name=${filter}` : '';
     const characters = await axios
-      .get(`https://rickandmortyapi.com/api/character?name=${filter}`)
+      .get(`https://rickandmortyapi-sigma.vercel.app/api/character${name}`)
       .then((response) => {
-        return response.data.results;
+        return response.data;
       })
       .catch((error) => {
         console.error(

@@ -11,7 +11,7 @@ class CharacterComponent extends React.Component<CharacterProps> {
       <div className="character">
         <img
           className="character__image"
-          src={this.props.image}
+          src={`https://rickandmortyapi.com/api/character/avatar/${this.props.id}.jpeg`}
           alt={this.props.name}
         />
         <h2 className="character__name">{this.props.name}</h2>
@@ -22,11 +22,11 @@ class CharacterComponent extends React.Component<CharacterProps> {
 
         <p>
           <span className="character__text">Origin</span>:&nbsp;
-          {this.props.origin.name}
+          {this.props.origin}
         </p>
         <p>
           <span className="character__text">Location</span>:&nbsp;
-          {this.props.location.name}
+          {this.props.location}
         </p>
         <p>
           <span className="character__text">Status</span>:&nbsp;

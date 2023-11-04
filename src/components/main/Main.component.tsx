@@ -20,6 +20,7 @@ class Main extends React.Component<MainProps> {
             ({ id, name, status, species, image, location, origin }) => (
               <CharacterComponent
                 key={id}
+                id={id}
                 name={name}
                 status={status}
                 species={species}
