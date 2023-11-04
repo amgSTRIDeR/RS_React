@@ -1,17 +1,11 @@
 import React from 'react';
 
-interface AppState {
-  searchFilter: string;
-  characters: Character[];
-}
-
 interface MainProps {
   characters: Character[];
 }
 
 interface HeaderProps {
   onSearch: (search: string) => void;
-  searchFilter: string;
 }
 
 interface ErrorButtonProps {
@@ -48,7 +42,6 @@ interface ImageProps {
 }
 
 export type {
-  AppState,
   MainProps,
   Character,
   CharacterProps,

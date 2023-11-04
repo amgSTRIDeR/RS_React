@@ -1,19 +1,27 @@
-import { ChangeEvent, FormEvent, useState } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
 import { HeaderProps } from '../../shared/interfaces';
 import './Header.css';
 
-const Header = (props: HeaderProps) => {
-  const [searchFilter, setSearchFilter] = useState(props.searchFilter);
+const Header = ({ onSearch }: HeaderProps) => {
+  const [searchFilter, setSearchFilter] = useState(
+    localStorage.getItem('searchFilter') || ''
+  );
   const [testError, setTestError] = useState(false);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     setSearchFilter(event.target.value);
   };
 
+  useEffect(() => {
+    onSearch(searchFilter);
+  }, []);
+
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    props.onSearch(searchFilter);
+    localStorage.setItem('searchFilter', searchFilter);
+    onSearch(searchFilter);
   };
 
   const showTestError = () => {

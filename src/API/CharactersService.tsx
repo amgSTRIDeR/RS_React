@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export default class CharactersService {
-  static isLoading = false;
+  static isLoading = true;
 
   static async getCharacters(filter: string) {
     this.isLoading = true;
