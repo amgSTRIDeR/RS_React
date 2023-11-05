@@ -66,8 +66,7 @@ const Header = ({ onSearch, updateCharactersOnPage }: HeaderProps) => {
     throw new Error('Intentional error in the render method');
   }
   return (
-    <div>
-      <ErrorButton showTestError={showTestError} />
+    <div className="header-container">
       <form className="searchForm" onSubmit={handleSearchSubmit}>
         <input
           name="searchInput"
@@ -82,15 +81,17 @@ const Header = ({ onSearch, updateCharactersOnPage }: HeaderProps) => {
         </button>
       </form>
       <select
+        className="charactersEachPage"
         name="charactersEachPage"
         id="charactersEachPage"
         defaultValue="10"
         onChange={handleSelectChange}
       >
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="20">20</option>
+        <option value="5">On page: 5</option>
+        <option value="10">On page: 10</option>
+        <option value="20">On page: 20</option>
       </select>
+      <ErrorButton showTestError={showTestError} />
     </div>
   );
 };
