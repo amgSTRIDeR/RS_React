@@ -1,0 +1,36 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
+.characters {
+  width: 100%;
+  margin: 20px auto;
+  display: grid;
+  column-gap: 10px;
+  row-gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  align-items: space-around;
+}
+
+@media (max-width: 677px) {
+  .characters {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.unfound-message {
+  display: block;
+  width: 100%;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.aside-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
