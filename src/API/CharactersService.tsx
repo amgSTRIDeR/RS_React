@@ -5,7 +5,7 @@ export default class CharactersService {
 
   static async getCharacters(filter: string) {
     this.isLoading = true;
-    const searchQuery = filter ? `?name_like=${filter}` : '';
+    const searchQuery = filter ? `?q=${filter}` : '';
     const characters = await axios
       .get(
         `https://rickandmortyapi-sigma.vercel.app/api/character${searchQuery}`
