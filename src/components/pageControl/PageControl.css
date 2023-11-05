@@ -1,0 +1,30 @@
+.pageControl__container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-top: 15px;
+  width: 100%;
+  align-self: center;
+}
+
+.pageControl__button {
+  width: 30px;
+  background-color: rgba(214, 214, 214, 0.493);
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  color: white;
+  transition: scale 0.3s ease-in-out;
+}
+
+.pageControl__button:hover {
+  background-color: #637081;
+  scale: 1.1;
+  transition: scale 0.3s ease-in-out;
+}
+
+.pageControl__button:active {
+  background-color: #36db3c;
+  color: black;
+}

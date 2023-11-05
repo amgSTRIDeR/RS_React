@@ -1,7 +1,8 @@
 import React from 'react';
 
 interface BodyProps {
-  updateCharacters: (search: string) => void;
+  updateCharacters: (searchFilter: string, charactersPerPage: string) => void;
+  updateCharactersOnPage: (pageNumber?: string) => void;
   characters: Character[];
 }
 
@@ -10,7 +11,8 @@ interface MainProps {
 }
 
 interface HeaderProps {
-  onSearch: (search: string) => void;
+  onSearch: (searchFilter: string, charactersPerPage: string) => void;
+  updateCharactersOnPage: (pageNumber?: string) => void;
 }
 
 interface ErrorButtonProps {
@@ -57,6 +59,10 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
+interface PageControlProps {
+  updateCharactersOnPage: (pageNumber?: string) => void;
+}
+
 export type {
   BodyProps,
   MainProps,
@@ -69,4 +75,5 @@ export type {
   ErrorBoundaryState,
   ImageProps,
   ButtonProps,
+  PageControlProps,
 };

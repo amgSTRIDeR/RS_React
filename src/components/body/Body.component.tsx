@@ -12,10 +12,26 @@ import ErrorPage from '../errorPage/ErrorPage.component';
 const Body = () => {
   const [characters, setCharacters] = useState([]);
 
-  const updateCharacters = (filter: string) => {
-    CharactersService.getCharacters(filter).then((foundCharacters) => {
-      setCharacters(foundCharacters);
-    });
+  const updateCharacters = (
+    searchFilter: string,
+    charactersPerPage: string
+  ) => {
+    CharactersService.getCharacters(searchFilter, charactersPerPage).then(
+      (foundCharacters) => {
+        setCharacters(foundCharacters);
+      }
+    );
+  };
+
+  const updateCharactersOnPage = (pageNumber: string | undefined) => {
+    if (pageNumber) {
+      CharactersService.currentPage = pageNumber;
+    }
+    CharactersService.getCharactersOnPage(pageNumber).then(
+      (foundCharacters) => {
+        setCharacters(foundCharacters);
+      }
+    );
   };
 
   const router = createBrowserRouter(
@@ -26,6 +42,7 @@ const Body = () => {
           element={
             <BodyView
               updateCharacters={updateCharacters}
+              updateCharactersOnPage={updateCharactersOnPage}
               characters={characters}
             />
           }
