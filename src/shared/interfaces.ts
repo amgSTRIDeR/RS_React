@@ -1,5 +1,10 @@
 import React from 'react';
 
+interface BodyProps {
+  updateCharacters: (search: string) => void;
+  characters: Character[];
+}
+
 interface MainProps {
   characters: Character[];
 }
@@ -42,6 +47,7 @@ interface ImageProps {
 }
 
 export type {
+  BodyProps,
   MainProps,
   Character,
   CharacterProps,

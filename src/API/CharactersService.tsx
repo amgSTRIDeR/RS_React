@@ -5,9 +5,11 @@ export default class CharactersService {
 
   static async getCharacters(filter: string) {
     this.isLoading = true;
-    const name = filter ? `?name=${filter}` : '';
+    const searchQuery = filter ? `?name_like=${filter}` : '';
     const characters = await axios
-      .get(`https://rickandmortyapi-sigma.vercel.app/api/character${name}`)
+      .get(
+        `https://rickandmortyapi-sigma.vercel.app/api/character${searchQuery}`
+      )
       .then((response) => {
         return response.data;
       })
