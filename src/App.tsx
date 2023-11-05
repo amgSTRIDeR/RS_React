@@ -5,7 +5,7 @@ import Body from './components/body/Body.component';
 
 const App = () => {
   return (
-    <ErrorBoundary fallback={<ErrorPage />}>
+    <ErrorBoundary fallback={<ErrorPage header="sdfsdf" />}>
       <Body />
     </ErrorBoundary>
   );

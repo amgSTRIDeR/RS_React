@@ -22,6 +22,10 @@ interface ErrorBoundaryProps {
   children: React.ReactNode;
 }
 
+interface ErrorPageProps {
+  header: string;
+}
+
 interface ErrorBoundaryState {
   hasError: boolean;
 }
@@ -53,6 +57,7 @@ export type {
   CharacterProps,
   HeaderProps,
   ErrorButtonProps,
+  ErrorPageProps,
   ErrorBoundaryProps,
   ErrorBoundaryState,
   ImageProps,

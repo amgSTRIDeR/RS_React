@@ -3,6 +3,7 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
 import { HeaderProps } from '../../shared/interfaces';
 import './Header.css';
+import { useNavigate } from 'react-router-dom';
 
 const Header = ({ onSearch }: HeaderProps) => {
   const [searchFilter, setSearchFilter] = useState(
@@ -28,7 +29,10 @@ const Header = ({ onSearch }: HeaderProps) => {
     setTestError(true);
   };
 
+  const navigate = useNavigate();
+
   if (testError) {
+    navigate('/error');
     throw new Error('Intentional error in the render method');
   }
   return (

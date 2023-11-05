@@ -21,11 +21,27 @@
   transition: all 0.3s ease-in-out;
 }
 
-.errorPage__image:hover {
-  box-shadow: 0 0 10px 5px #fdfffc;
+.errorPage__text--reload {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #fdfffc;
+  color: #1d3557;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+}
+
+.errorPage__text--reload:hover {
+  box-shadow: 0 0 10px 5px #777777;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  scale: 1.05;
+}
+
+.errorPage__text--reload:active {
+  box-shadow: 0 0 5px 3px #000000;
+  scale: 0.95;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .errorPage__text {
