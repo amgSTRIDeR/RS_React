@@ -1,15 +1,15 @@
-.main {
+.characters {
   width: 90vw;
   margin: 20px auto;
   display: grid;
   column-gap: 10px;
   row-gap: 20px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   align-items: space-around;
 }
 
 @media (max-width: 677px) {
-  .main {
+  .characters {
     display: flex;
     flex-direction: column;
     align-items: center;

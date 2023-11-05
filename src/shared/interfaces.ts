@@ -50,6 +50,13 @@ interface ImageProps {
   className?: string;
 }
 
+interface ButtonProps {
+  onClick: () => void;
+  children: React.ReactNode;
+  className?: string;
+  disabled?: boolean;
+}
+
 export type {
   BodyProps,
   MainProps,
@@ -61,4 +68,5 @@ export type {
   ErrorBoundaryProps,
   ErrorBoundaryState,
   ImageProps,
+  ButtonProps,
 };

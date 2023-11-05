@@ -6,7 +6,7 @@ import CharactersService from '../../API/CharactersService';
 
 const Main = (props: MainProps) => {
   return (
-    <div className="main">
+    <div className="characters">
       {CharactersService.isLoading ? (
         <Loader />
       ) : props.characters.length ? (

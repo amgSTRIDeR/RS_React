@@ -4,25 +4,30 @@
   align-items: flex-start;
   justify-content: space-between;
   row-gap: 5px;
-  width: 300px;
+  width: 150px;
   margin: 0 auto;
   padding: 10px;
+
+  font-size: 0.8rem;
+
   background-color: #637081;
   border-radius: 5px;
   box-shadow: 0 0 2px 2px rgba(214, 214, 214, 0.493);
 }
 
 .character__name {
+  font-size: 1rem;
   align-self: center;
 }
 
 .character__image {
   width: 90%;
-  align-self: center;
+  margin: 0 auto;
   border-radius: 5px;
 }
 
 .character__text {
+  font-size: 0.8rem;
   text-decoration: underline;
   font-weight: 600;
 }

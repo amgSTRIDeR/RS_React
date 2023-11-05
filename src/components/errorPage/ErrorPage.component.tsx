@@ -1,6 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { ErrorPageProps } from '../../shared/interfaces';
 import './ErrorPage.css';
+import Button from '../../UI/button/Button.component';
 
 const ErrorPage = (props: ErrorPageProps) => {
   const navigate = useNavigate();
@@ -16,9 +17,7 @@ const ErrorPage = (props: ErrorPageProps) => {
         src="/20-minutes-adventure-after.gif"
         alt=""
       />
-      <p className="errorPage__text--reload" onClick={() => navigate('/')}>
-        Click to reload the page
-      </p>
+      <Button onClick={() => navigate('/')}>Return to main</Button>
     </div>
   );
 };

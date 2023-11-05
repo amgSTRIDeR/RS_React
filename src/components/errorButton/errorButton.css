@@ -1,33 +1,14 @@
 .errorButton__container {
+  width: 100%;
+  height: 200px;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   max-width: 400px;
   margin: 10px auto 10px auto;
-}
+  padding: 30px;
 
-.errorButton__image {
-  width: 70%;
-  border-radius: 10px;
-  transition: all 0.3s ease-in-out;
-  margin-bottom: 5px;
-}
-
-.errorButton__image:hover {
-  box-shadow: 0 0 10px 5px #fdfffc;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  scale: 1.01;
-}
-
-.errorButton__image:active {
-  box-shadow: 0 0 5x 10px #fdfffc;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
-  scale: 0.99;
-}
-
-.errorButton__text {
-  user-select: none;
+  background-image: url('/20-minutes-adventure-before.gif');
+  background-position: center;
+  background-repeat: no-repeat;
 }

@@ -7,7 +7,11 @@ const Image = (props: ImageProps) => {
     triggerOnce: true,
   });
 
-  return <div ref={ref}>{inView ? <img {...props} /> : <Loader />}</div>;
+  return (
+    <div ref={ref} style={{ display: 'flex', justifyItems: 'center' }}>
+      {inView ? <img {...props} /> : <Loader />}
+    </div>
+  );
 };
 
 export default Image;
