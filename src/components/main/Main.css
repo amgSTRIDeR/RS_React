@@ -1,5 +1,10 @@
+.main {
+  display: flex;
+  justify-content: space-between;
+}
+
 .characters {
-  width: 90vw;
+  width: 100%;
   margin: 20px auto;
   display: grid;
   column-gap: 10px;
@@ -21,4 +26,11 @@
   width: 100%;
   text-align: center;
   margin-top: 30px;
+}
+
+.aside-container {
+  width: 50%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
