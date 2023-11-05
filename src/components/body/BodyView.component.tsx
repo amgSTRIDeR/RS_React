@@ -1,4 +1,3 @@
-import CharactersService from '../../API/CharactersService';
 import { BodyProps } from '../../shared/interfaces';
 import Header from '../header/Header.component';
 import Main from '../main/Main.component';
@@ -15,7 +14,7 @@ const BodyView = ({
         onSearch={updateCharacters}
         updateCharactersOnPage={updateCharactersOnPage}
       />
-      {CharactersService.pagesCount !== '0' ? (
+      {characters.length ? (
         <PageControl updateCharactersOnPage={updateCharactersOnPage} />
       ) : null}
       <Main characters={characters} />

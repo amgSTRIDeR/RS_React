@@ -3,35 +3,56 @@ import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
 import { HeaderProps } from '../../shared/interfaces';
 import './Header.css';
-import { useNavigate } from 'react-router-dom';
 import CharactersService from '../../API/CharactersService';
+import { useNavigate } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 
 const Header = ({ onSearch, updateCharactersOnPage }: HeaderProps) => {
   const [searchFilter, setSearchFilter] = useState(
     localStorage.getItem('searchFilter') || ''
   );
+  const [tempSearchFilter, setTempSearchFilter] = useState(searchFilter);
   const [charactersPerPage, setCharactersPerPage] = useState('10');
   const [testError, setTestError] = useState(false);
+  const [, setSearchParams] = useSearchParams();
+
+  const updateQueryParams = () => {
+    setSearchParams((prevSearchParams) => {
+      prevSearchParams.set('page', `${CharactersService.currentPage}`);
+      prevSearchParams.set(
+        'characters-per-page',
+        `${CharactersService.charactersPerPage}`
+      );
+      prevSearchParams.set('search-filter', `${tempSearchFilter}`);
+      return prevSearchParams;
+    });
+  };
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    setSearchFilter(event.target.value);
+    event.preventDefault();
+    setTempSearchFilter(event.target.value);
   };
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
+    event.preventDefault();
     setCharactersPerPage(event.target.value);
     CharactersService.charactersPerPage = event.target.value;
     CharactersService.countPages();
     updateCharactersOnPage();
+    updateQueryParams();
   };
 
   useEffect(() => {
     onSearch(searchFilter, charactersPerPage);
-  }, []);
+    updateQueryParams();
+  }, [onSearch, searchFilter, charactersPerPage]);
 
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    localStorage.setItem('searchFilter', searchFilter);
+    setSearchFilter(tempSearchFilter);
+    localStorage.setItem('searchFilter', tempSearchFilter);
     onSearch(searchFilter, charactersPerPage);
+    updateQueryParams();
   };
 
   const showTestError = () => {
@@ -49,26 +70,27 @@ const Header = ({ onSearch, updateCharactersOnPage }: HeaderProps) => {
       <ErrorButton showTestError={showTestError} />
       <form className="searchForm" onSubmit={handleSearchSubmit}>
         <input
+          name="searchInput"
           className="searchInput"
           type="text"
           placeholder="wanted dead or alive"
-          value={searchFilter}
+          value={tempSearchFilter}
           onChange={handleSearchChange}
         ></input>
         <button className="searchButton" type="submit">
           Search
         </button>
-        <select
-          name="charactersEachPage"
-          id="charactersEachPage"
-          defaultValue="10"
-          onChange={handleSelectChange}
-        >
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="20">20</option>
-        </select>
       </form>
+      <select
+        name="charactersEachPage"
+        id="charactersEachPage"
+        defaultValue="10"
+        onChange={handleSelectChange}
+      >
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="20">20</option>
+      </select>
     </div>
   );
 };

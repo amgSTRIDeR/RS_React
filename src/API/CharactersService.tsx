@@ -10,8 +10,9 @@ export default class CharactersService {
 
   static async getCharacters(searchFilter: string, charactersPerPage: string) {
     this.isLoading = true;
-    this.charactersPerPage = charactersPerPage;
     this.searchFilter = searchFilter;
+    this.currentPage = '1';
+    this.charactersPerPage = charactersPerPage;
     const searchQuery = searchFilter ? `q=${searchFilter}` : '';
     this.amountOfCharacters = await axios
       .get(
@@ -26,7 +27,6 @@ export default class CharactersService {
         );
         return 0;
       });
-
     this.countPages();
     const characters = await this.getCharactersOnPage(this.currentPage);
     this.isLoading = false;
@@ -35,7 +35,7 @@ export default class CharactersService {
 
   static async getCharactersOnPage(pageNumber: string = this.currentPage) {
     this.isLoading = true;
-    const searchQuery = this.searchFilter ? `?q=${this.searchFilter}` : '';
+    const searchQuery = this.searchFilter ? `q=${this.searchFilter}` : '';
     const characters = await axios
       .get(
         `https://rickandmortyapi-sigma.vercel.app/api/character/?${searchQuery}&_limit=${this.charactersPerPage}&_page=${pageNumber}`

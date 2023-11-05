@@ -25,7 +25,7 @@ const Main = (props: MainProps) => {
           )
         )
       ) : (
-        <p>Characters not found</p>
+        <p className="unfound-message">Characters not found</p>
       )}
     </div>
   );
