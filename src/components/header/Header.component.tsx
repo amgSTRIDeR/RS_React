@@ -1,18 +1,14 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { ChangeEvent, FormEvent, useEffect, useState } from 'react';
+import { ChangeEvent, useState } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
-import { HeaderProps } from '../../shared/interfaces';
 import './Header.css';
 import CharactersService from '../../API/CharactersService';
 import { useNavigate } from 'react-router-dom';
 import { useSearchParams } from 'react-router-dom';
+import SeacrhComponent from '../seacrh/SeacrhComponent';
 
-const Header = ({ onSearch, updateCharactersOnPage }: HeaderProps) => {
-  const [searchFilter, setSearchFilter] = useState(
-    localStorage.getItem('searchFilter') || ''
-  );
-  const [tempSearchFilter, setTempSearchFilter] = useState(searchFilter);
-  const [charactersPerPage, setCharactersPerPage] = useState('10');
+const Header = () => {
+  const [, setCharactersPerPage] = useState('10');
   const [testError, setTestError] = useState(false);
   const [, setSearchParams] = useSearchParams();
 
@@ -23,14 +19,8 @@ const Header = ({ onSearch, updateCharactersOnPage }: HeaderProps) => {
         'characters-per-page',
         `${CharactersService.charactersPerPage}`
       );
-      prevSearchParams.set('search-filter', `${tempSearchFilter}`);
       return prevSearchParams;
     });
-  };
-
-  const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
-    event.preventDefault();
-    setTempSearchFilter(event.target.value);
   };
 
   const handleSelectChange = (event: ChangeEvent<HTMLSelectElement>) => {
@@ -38,20 +28,7 @@ const Header = ({ onSearch, updateCharactersOnPage }: HeaderProps) => {
     setCharactersPerPage(event.target.value);
     CharactersService.charactersPerPage = event.target.value;
     CharactersService.countPages();
-    updateCharactersOnPage();
-    updateQueryParams();
-  };
-
-  useEffect(() => {
-    onSearch(searchFilter, charactersPerPage);
-    updateQueryParams();
-  }, [onSearch, searchFilter, charactersPerPage]);
-
-  const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
-    event.preventDefault();
-    setSearchFilter(tempSearchFilter);
-    localStorage.setItem('searchFilter', tempSearchFilter);
-    onSearch(searchFilter, charactersPerPage);
+    // updateCharactersOnPage();
     updateQueryParams();
   };
 
@@ -67,19 +44,7 @@ const Header = ({ onSearch, updateCharactersOnPage }: HeaderProps) => {
   }
   return (
     <div className="header-container">
-      <form className="searchForm" onSubmit={handleSearchSubmit}>
-        <input
-          name="searchInput"
-          className="searchInput"
-          type="text"
-          placeholder="wanted dead or alive"
-          value={tempSearchFilter}
-          onChange={handleSearchChange}
-        ></input>
-        <button className="searchButton" type="submit">
-          Search
-        </button>
-      </form>
+      <SeacrhComponent />
       <select
         className="charactersEachPage"
         name="charactersEachPage"

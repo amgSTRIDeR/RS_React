@@ -6,14 +6,14 @@ import {
   createRoutesFromElements,
   RouterProvider,
 } from 'react-router-dom';
-import Body from './components/body/Body.component';
-import ErrorPage from './components/errorPage/ErrorPage.component';
+import HomePage from './pages/HomePage';
+import ErrorPage from './pages/ErrorPage';
 
 const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-        <Route index element={<Body />} />
+        <Route index element={<HomePage />} />
         <Route
           path="error"
           element={<ErrorPage header="(Some error on the page)" />}
@@ -23,7 +23,7 @@ const App = () => {
     )
   );
   return (
-    <ErrorBoundary fallback={<ErrorPage header="sdfsdf" />}>
+    <ErrorBoundary fallback={<ErrorPage header="Global error" />}>
       <RouterProvider router={router} />
     </ErrorBoundary>
   );

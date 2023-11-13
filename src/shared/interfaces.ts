@@ -1,6 +1,6 @@
 import React from 'react';
 
-interface BodyProps {
+interface HomeProps {
   updateCharacters: (searchFilter: string, charactersPerPage: string) => void;
   updateCharactersOnPage: (pageNumber?: string) => void;
   characters: Character[];
@@ -64,7 +64,7 @@ interface PageControlProps {
 }
 
 export type {
-  BodyProps,
+  HomeProps,
   MainProps,
   Character,
   CharacterProps,

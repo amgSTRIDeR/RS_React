@@ -5,10 +5,10 @@ import Loader from '../../UI/loader/Loader.component';
 import CharactersService from '../../API/CharactersService';
 import AsideService from '../../API/AsideService';
 import { useSearchParams } from 'react-router-dom';
-import Aside from '../aside/Aside.Component';
+import Aside from '../../layouts/DetailsLayout';
 import { useEffect, useState } from 'react';
 
-const Main = (props: MainProps) => {
+const MainComponent = (props: MainProps) => {
   const [searchParams] = useSearchParams();
   const [character, setCharacter] = useState({} as Character);
   const [asideSection, setAsideSection] = useState(false);
@@ -72,4 +72,4 @@ const Main = (props: MainProps) => {
   );
 };
 
-export default Main;
+export default MainComponent;
