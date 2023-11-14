@@ -7,12 +7,11 @@ interface HomeProps {
 }
 
 interface MainProps {
-  characters: Character[];
+  isCharactersLoading: boolean;
 }
 
 interface HeaderProps {
-  onSearch: (searchFilter: string, charactersPerPage: string) => void;
-  updateCharactersOnPage: (pageNumber?: string) => void;
+  pagesCount: number;
 }
 
 interface ErrorButtonProps {

@@ -2,32 +2,38 @@ import CharacterComponent from '../character/Character.component';
 import './Main.css';
 import { useContext } from 'react';
 import { CharactersContext } from '../../contexts/CharactersContext';
+import { MainProps } from '../../shared/interfaces';
+import Loader from '../../UI/loader/Loader.component';
 
-const MainComponent = () => {
+const MainComponent = (props: MainProps) => {
   const { characters } = useContext(CharactersContext);
 
   return (
     <div className="main">
-      <div className="characters">
-        {characters.length ? (
-          characters.map(
-            ({ id, name, status, species, image, location, origin }) => (
-              <CharacterComponent
-                key={id}
-                id={id}
-                name={name}
-                status={status}
-                species={species}
-                image={image}
-                location={location}
-                origin={origin}
-              />
+      {props.isCharactersLoading ? (
+        <Loader />
+      ) : (
+        <div className="characters">
+          {characters.length ? (
+            characters.map(
+              ({ id, name, status, species, image, location, origin }) => (
+                <CharacterComponent
+                  key={id}
+                  id={id}
+                  name={name}
+                  status={status}
+                  species={species}
+                  image={image}
+                  location={location}
+                  origin={origin}
+                />
+              )
             )
-          )
-        ) : (
-          <p className="unfound-message">Characters not found</p>
-        )}
-      </div>
+          ) : (
+            <p className="unfound-message">Characters not found</p>
+          )}
+        </div>
+      )}
     </div>
 
     //   {AsideService.isLoading ? (

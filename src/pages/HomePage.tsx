@@ -16,6 +16,7 @@ const Home = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [characters, setCharacters] = useState<Character[]>([]);
   const [pagesCount, setPagesCount] = useState(0);
+  const [isCharactersLoading, setIsCharactersLoading] = useState(false);
 
   // const updateQueryParams = () => {
   //   setSearchParams((prevSearchParams) => {
@@ -24,12 +25,15 @@ const Home = () => {
   //   });
   // };
   useEffect(() => {
-    getCharacters(searchFilter, charactersPerPage, currentPage).then(
-      ({ characters, pagesCount }) => {
+    setIsCharactersLoading(true);
+    getCharacters(searchFilter, charactersPerPage, currentPage)
+      .then(({ characters, pagesCount }) => {
         setCharacters(characters);
         setPagesCount(pagesCount);
-      }
-    );
+      })
+      .finally(() => {
+        setIsCharactersLoading(false);
+      });
 
     if (currentPage > pagesCount) {
       setCurrentPage(pagesCount);
@@ -48,7 +52,7 @@ const Home = () => {
           }}
         >
           <HeaderComponent />
-          <MainComponent />
+          <MainComponent isCharactersLoading={isCharactersLoading} />
           <PageControl
             pagesCount={pagesCount}
             currentPage={currentPage}
