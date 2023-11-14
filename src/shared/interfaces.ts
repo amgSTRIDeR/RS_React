@@ -42,6 +42,11 @@ interface Character {
   image?: string;
 }
 
+interface ApiResponse {
+  characters: Character[];
+  pagesCount: number;
+}
+
 interface CharacterProps extends Character {
   key: number;
 }
@@ -76,4 +81,5 @@ export type {
   ImageProps,
   ButtonProps,
   PageControlProps,
+  ApiResponse,
 };

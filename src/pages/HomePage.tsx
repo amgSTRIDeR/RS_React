@@ -1,23 +1,56 @@
-import Header from '../components/header/Header.component';
-import { CharactersProvider } from '../contexts/CharactersContext';
+import HeaderComponent from '../components/header/Header.component';
+import { CharactersContext } from '../contexts/CharactersContext';
 import { SearchContext } from '../contexts/SearchContext';
-import { useState } from 'react';
+import { PageContext } from '../contexts/PageContext';
+import { useEffect, useState } from 'react';
+import { Character } from '../shared/interfaces';
+import { getCharacters } from '../API/CharactersService';
 
 const Home = () => {
   const [searchFilter, setSearchFilter] = useState(
     localStorage.getItem('searchFilter') || ''
   );
-  return (
-    <CharactersProvider>
-      <SearchContext.Provider value={{ searchFilter, setSearchFilter }}>
-        <Header />
+  const [charactersPerPage, setCharactersPerPage] = useState('10');
+  const [currentPage, setCurrentPage] = useState(1);
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [pagesCount, setPagesCount] = useState(0);
 
-        {/* <Route path="/" element={<Main />}> */}
-        {/* <Route path="/" element={<Characters />} />
+  // const updateQueryParams = () => {
+  //   setSearchParams((prevSearchParams) => {
+  //     prevSearchParams.set('page', `${CharactersService.currentPage}`);
+  //     return prevSearchParams;
+  //   });
+  // };
+  useEffect(() => {
+    getCharacters(searchFilter, charactersPerPage, currentPage).then(
+      ({ characters, pagesCount }) => {
+        setCharacters(characters);
+        setPagesCount(pagesCount);
+      }
+    );
+    console.log(pagesCount);
+  }, [searchFilter, charactersPerPage, currentPage]);
+
+  return (
+    <CharactersContext.Provider value={{ characters, setCharacters }}>
+      <SearchContext.Provider value={{ searchFilter, setSearchFilter }}>
+        <PageContext.Provider
+          value={{
+            charactersPerPage,
+            setCharactersPerPage,
+            currentPage,
+            setCurrentPage,
+          }}
+        >
+          <HeaderComponent />
+
+          {/* <Route path="/" element={<Main />}> */}
+          {/* <Route path="/" element={<Characters />} />
         <Route path="characters" element={<PageControl />} /> */}
-        {/* </Route> */}
+          {/* </Route> */}
+        </PageContext.Provider>
       </SearchContext.Provider>
-    </CharactersProvider>
+    </CharactersContext.Provider>
   );
 };
 
