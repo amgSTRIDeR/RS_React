@@ -7,6 +7,7 @@ import { Character } from '../shared/interfaces';
 import { getCharacters } from '../API/CharactersService';
 import MainComponent from '../components/main/MainComponent';
 import PageControl from '../components/pageControl/PageControl';
+import { DetailsContext } from '../contexts/DetailsContext';
 
 const Home = () => {
   const [searchFilter, setSearchFilter] = useState(
@@ -17,6 +18,7 @@ const Home = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [pagesCount, setPagesCount] = useState(0);
   const [isCharactersLoading, setIsCharactersLoading] = useState(false);
+  const [detailsParam, setDetailsParams] = useState(0);
 
   // const updateQueryParams = () => {
   //   setSearchParams((prevSearchParams) => {
@@ -52,12 +54,16 @@ const Home = () => {
           }}
         >
           <HeaderComponent />
-          <MainComponent isCharactersLoading={isCharactersLoading} />
           <PageControl
             pagesCount={pagesCount}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}
           />
+          <div className="main-container">
+            <DetailsContext.Provider value={{ detailsParam, setDetailsParams }}>
+              <MainComponent isCharactersLoading={isCharactersLoading} />
+            </DetailsContext.Provider>
+          </div>
         </PageContext.Provider>
       </SearchContext.Provider>
     </CharactersContext.Provider>

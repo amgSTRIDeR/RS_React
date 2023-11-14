@@ -40,6 +40,16 @@ interface Character {
   origin: string;
   image?: string;
 }
+interface Details {
+  details: {
+    name: string;
+    status: string;
+    species: string;
+    id: string;
+    location: string;
+    origin: string;
+  };
+}
 
 interface ApiResponse {
   characters: Character[];
@@ -83,4 +93,5 @@ export type {
   ButtonProps,
   PageControlProps,
   ApiResponse,
+  Details,
 };

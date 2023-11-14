@@ -28,7 +28,7 @@ export async function getCharacters(
   }
 }
 
-export async function getCharacter(id: string) {
+export async function getCharacter(id: number) {
   const character = await axios
     .get(`https://rickandmortyapi-sigma.vercel.app/api/character/?id=${id}`)
     .then((response) => {
