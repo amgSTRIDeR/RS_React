@@ -33,16 +33,7 @@ const MainComponent = (props: MainProps) => {
         prevSearchParams.set('details', `${detailsParam}`);
         return prevSearchParams;
       });
-    } else {
-      setSearchParams((prevSearchParams) => {
-        prevSearchParams.delete('details');
-        return prevSearchParams;
-      });
-    }
-  }, [detailsParam, setSearchParams]);
 
-  useEffect(() => {
-    if (detailsParam) {
       setIsDetailsLoading(true);
       getCharacter(detailsParam)
         .then((character) => {
@@ -51,8 +42,13 @@ const MainComponent = (props: MainProps) => {
         .finally(() => {
           setIsDetailsLoading(false);
         });
+    } else {
+      setSearchParams((prevSearchParams) => {
+        prevSearchParams.delete('details');
+        return prevSearchParams;
+      });
     }
-  }, [detailsParam]);
+  }, [detailsParam, setSearchParams]);
 
   return (
     <div className="main" onClick={hideDetails}>

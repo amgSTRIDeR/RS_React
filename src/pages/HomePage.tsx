@@ -8,6 +8,7 @@ import { getCharacters } from '../API/CharactersService';
 import MainComponent from '../components/main/MainComponent';
 import PageControl from '../components/pageControl/PageControl';
 import { DetailsContext } from '../contexts/DetailsContext';
+import { useSearchParams } from 'react-router-dom';
 
 const Home = () => {
   const [searchFilter, setSearchFilter] = useState(
@@ -19,13 +20,35 @@ const Home = () => {
   const [pagesCount, setPagesCount] = useState(0);
   const [isCharactersLoading, setIsCharactersLoading] = useState(false);
   const [detailsParam, setDetailsParams] = useState(0);
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // const updateQueryParams = () => {
-  //   setSearchParams((prevSearchParams) => {
-  //     prevSearchParams.set('page', `${CharactersService.currentPage}`);
-  //     return prevSearchParams;
-  //   });
-  // };
+  useEffect(() => {
+    setSearchParams((prevSearchParams) => {
+      const prevPage = prevSearchParams.get('page');
+      if (prevPage !== currentPage.toString()) {
+        prevSearchParams.set('page', `${currentPage}`);
+      }
+
+      const prevSearchFilter = prevSearchParams.get('search');
+      if (prevSearchFilter !== searchFilter) {
+        prevSearchParams.set('search', `${searchFilter}`);
+      }
+
+      const prevCharactersPerPage = prevSearchParams.get('perPage');
+      if (prevCharactersPerPage !== charactersPerPage) {
+        prevSearchParams.set('perPage', `${charactersPerPage}`);
+      }
+
+      return prevSearchParams;
+    });
+  }, [
+    currentPage,
+    searchParams,
+    charactersPerPage,
+    setSearchParams,
+    searchFilter,
+  ]);
+
   useEffect(() => {
     setIsCharactersLoading(true);
     getCharacters(searchFilter, charactersPerPage, currentPage)

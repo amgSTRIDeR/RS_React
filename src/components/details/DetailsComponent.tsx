@@ -5,11 +5,13 @@ import Image from '../image/Image.component';
 const DetailsComponent = (props: Details) => {
   return (
     <div className="details">
-      <Image
-        className="details__image"
-        src={`https://rickandmortyapi.com/api/character/avatar/${props.details.id}.jpeg`}
-        alt={props.details.name}
-      />
+      <div>
+        <Image
+          className="details__image"
+          src={`https://rickandmortyapi.com/api/character/avatar/${props.details.id}.jpeg`}
+          alt={props.details.name}
+        />
+      </div>
       <div className="details__info">
         <p>
           <span className="details__text">Species</span>:&nbsp;
