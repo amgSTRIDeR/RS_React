@@ -1,9 +1,11 @@
 import { ChangeEvent, FormEvent, useContext, useState } from 'react';
 import './SearchComponent.css';
 import { SearchContext } from '../../contexts/SearchContext';
+import { PageContext } from '../../contexts/PageContext';
 
-function SeacrhComponent() {
+function SearchComponent() {
   const { searchFilter, setSearchFilter } = useContext(SearchContext);
+  const { setCurrentPage } = useContext(PageContext);
   const [currentSearchFilter, setCurrentSearchFilter] = useState(searchFilter);
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
@@ -14,6 +16,7 @@ function SeacrhComponent() {
   const handleSearchSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     localStorage.setItem('searchFilter', currentSearchFilter);
+    setCurrentPage(1);
     setSearchFilter(currentSearchFilter);
   };
 
@@ -34,4 +37,4 @@ function SeacrhComponent() {
   );
 }
 
-export default SeacrhComponent;
+export default SearchComponent;

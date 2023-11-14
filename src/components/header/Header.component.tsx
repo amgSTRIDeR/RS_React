@@ -2,7 +2,7 @@ import { FormEvent, useContext, useState } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
-import SeacrhComponent from '../seacrh/SearchComponent';
+import SearchComponent from '../seacrh/SearchComponent';
 import { PageContext } from '../../contexts/PageContext';
 
 const HeaderComponent = () => {
@@ -26,7 +26,7 @@ const HeaderComponent = () => {
 
   return (
     <div className="header-container">
-      <SeacrhComponent />
+      <SearchComponent />
       <div>
         <p>Characters on page {charactersPerPage}</p>
         <input
