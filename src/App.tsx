@@ -13,7 +13,7 @@ const App = () => {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route path="/">
-        <Route index element={<HomePage />} />
+        <Route path="/" element={<HomePage />} />
         <Route
           path="error"
           element={<ErrorPage header="(Some error on the page)" />}

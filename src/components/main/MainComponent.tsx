@@ -1,39 +1,16 @@
-import { Character, MainProps } from '../../shared/interfaces';
 import CharacterComponent from '../character/Character.component';
 import './Main.css';
-import Loader from '../../UI/loader/Loader.component';
-import CharactersService from '../../API/CharactersService';
-import AsideService from '../../API/AsideService';
-import { useSearchParams } from 'react-router-dom';
-import Aside from '../../layouts/DetailsLayout';
-import { useEffect, useState } from 'react';
+import { useContext } from 'react';
+import { CharactersContext } from '../../contexts/CharactersContext';
 
-const MainComponent = (props: MainProps) => {
-  const [searchParams] = useSearchParams();
-  const [character, setCharacter] = useState({} as Character);
-  const [asideSection, setAsideSection] = useState(false);
+const MainComponent = () => {
+  const { characters } = useContext(CharactersContext);
 
-  useEffect(() => {
-    if (searchParams.has('aside') && searchParams.get('aside') === '1') {
-      async function fetchData() {
-        const character = await AsideService.getCharacter(
-          searchParams.get('details') as string
-        );
-        setCharacter(character);
-        setAsideSection(true);
-      }
-      fetchData();
-    } else {
-      setAsideSection(false);
-    }
-  }, [searchParams]);
   return (
     <div className="main">
       <div className="characters">
-        {CharactersService.isLoading ? (
-          <Loader />
-        ) : props.characters.length ? (
-          props.characters.map(
+        {characters.length ? (
+          characters.map(
             ({ id, name, status, species, image, location, origin }) => (
               <CharacterComponent
                 key={id}
@@ -51,24 +28,26 @@ const MainComponent = (props: MainProps) => {
           <p className="unfound-message">Characters not found</p>
         )}
       </div>
-      {AsideService.isLoading ? (
-        <Loader />
-      ) : asideSection ? (
-        <div className="aside-container">
-          <Aside />
-          <CharacterComponent
-            key={character.id}
-            id={character.id}
-            name={character.name}
-            status={character.status}
-            species={character.species}
-            image={character.image}
-            location={character.location}
-            origin={character.origin}
-          />
-        </div>
-      ) : null}
     </div>
+
+    //   {AsideService.isLoading ? (
+    //     <Loader />
+    //   ) : asideSection ? (
+    //     <div className="aside-container">
+    //       <Aside />
+    //       <CharacterComponent
+    //         key={character.id}
+    //         id={character.id}
+    //         name={character.name}
+    //         status={character.status}
+    //         species={character.species}
+    //         image={character.image}
+    //         location={character.location}
+    //         origin={character.origin}
+    //       />
+    //     </div>
+    //   ) : null}
+    // </div>
   );
 };
 

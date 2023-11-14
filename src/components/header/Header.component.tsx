@@ -29,7 +29,13 @@ const HeaderComponent = () => {
       <SeacrhComponent />
       <div>
         <p>Characters on page {charactersPerPage}</p>
-        <input type="range" min="1" max="100" onInput={handleInputChange} />
+        <input
+          type="range"
+          min="1"
+          max="100"
+          value={charactersPerPage}
+          onChange={handleInputChange}
+        />
       </div>
       <ErrorButton showTestError={showTestError} />
     </div>

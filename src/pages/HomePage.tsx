@@ -5,6 +5,8 @@ import { PageContext } from '../contexts/PageContext';
 import { useEffect, useState } from 'react';
 import { Character } from '../shared/interfaces';
 import { getCharacters } from '../API/CharactersService';
+import MainComponent from '../components/main/MainComponent';
+import PageControl from '../components/pageControl/PageControl';
 
 const Home = () => {
   const [searchFilter, setSearchFilter] = useState(
@@ -28,8 +30,11 @@ const Home = () => {
         setPagesCount(pagesCount);
       }
     );
-    console.log(pagesCount);
-  }, [searchFilter, charactersPerPage, currentPage]);
+
+    if (currentPage > pagesCount) {
+      setCurrentPage(pagesCount);
+    }
+  }, [searchFilter, charactersPerPage, currentPage, pagesCount]);
 
   return (
     <CharactersContext.Provider value={{ characters, setCharacters }}>
@@ -43,11 +48,12 @@ const Home = () => {
           }}
         >
           <HeaderComponent />
-
-          {/* <Route path="/" element={<Main />}> */}
-          {/* <Route path="/" element={<Characters />} />
-        <Route path="characters" element={<PageControl />} /> */}
-          {/* </Route> */}
+          <MainComponent />
+          <PageControl
+            pagesCount={pagesCount}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
+          />
         </PageContext.Provider>
       </SearchContext.Provider>
     </CharactersContext.Provider>

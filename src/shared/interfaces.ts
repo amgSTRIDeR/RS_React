@@ -65,7 +65,9 @@ interface ButtonProps {
 }
 
 interface PageControlProps {
-  updateCharactersOnPage: (pageNumber?: string) => void;
+  pagesCount: number;
+  currentPage: number;
+  setCurrentPage: (pageNumber: number) => void;
 }
 
 export type {
