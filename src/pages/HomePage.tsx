@@ -4,7 +4,7 @@ import { SearchContext } from '../contexts/SearchContext';
 import { PageContext } from '../contexts/PageContext';
 import { useEffect, useState } from 'react';
 import { Character } from '../shared/interfaces';
-import { getCharacters } from '../API/CharactersService';
+import { getCharacter, getCharacters } from '../API/CharactersService';
 import MainComponent from '../components/main/MainComponent';
 import PageControl from '../components/pageControl/PageControl';
 import { DetailsContext } from '../contexts/DetailsContext';
@@ -21,6 +21,15 @@ const Home = () => {
   const [isCharactersLoading, setIsCharactersLoading] = useState(false);
   const [detailsParam, setDetailsParams] = useState(0);
   const [searchParams, setSearchParams] = useSearchParams();
+  const [isDetailsLoading, setIsDetailsLoading] = useState(false);
+  const [details, setDetails] = useState({
+    status: '',
+    species: '',
+    id: '',
+    location: '',
+    origin: '',
+    name: '',
+  });
 
   useEffect(() => {
     setSearchParams((prevSearchParams) => {
@@ -65,6 +74,29 @@ const Home = () => {
     }
   }, [searchFilter, charactersPerPage, currentPage, pagesCount]);
 
+  useEffect(() => {
+    if (detailsParam) {
+      setSearchParams((prevSearchParams) => {
+        prevSearchParams.set('details', `${detailsParam}`);
+        return prevSearchParams;
+      });
+
+      setIsDetailsLoading(true);
+      getCharacter(detailsParam)
+        .then((character) => {
+          setDetails(character);
+        })
+        .finally(() => {
+          setIsDetailsLoading(false);
+        });
+    } else {
+      setSearchParams((prevSearchParams) => {
+        prevSearchParams.delete('details');
+        return prevSearchParams;
+      });
+    }
+  }, [detailsParam, setSearchParams]);
+
   return (
     <CharactersContext.Provider value={{ characters, setCharacters }}>
       <SearchContext.Provider value={{ searchFilter, setSearchFilter }}>
@@ -84,7 +116,11 @@ const Home = () => {
           />
           <div className="main-container">
             <DetailsContext.Provider value={{ detailsParam, setDetailsParams }}>
-              <MainComponent isCharactersLoading={isCharactersLoading} />
+              <MainComponent
+                isCharactersLoading={isCharactersLoading}
+                isDetailsLoading={isDetailsLoading}
+                details={details}
+              />
             </DetailsContext.Provider>
           </div>
         </PageContext.Provider>

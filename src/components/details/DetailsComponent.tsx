@@ -1,12 +1,11 @@
 import './DetailsComponent.css';
 import { Details } from '../../shared/interfaces';
-import Image from '../image/Image.component';
 
 const DetailsComponent = (props: Details) => {
   return (
     <div className="details">
       <div>
-        <Image
+        <img
           className="details__image"
           src={`https://rickandmortyapi.com/api/character/avatar/${props.details.id}.jpeg`}
           alt={props.details.name}

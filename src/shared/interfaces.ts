@@ -8,6 +8,15 @@ interface HomeProps {
 
 interface MainProps {
   isCharactersLoading: boolean;
+  isDetailsLoading: boolean;
+  details: {
+    name: string;
+    status: string;
+    species: string;
+    id: string;
+    location: string;
+    origin: string;
+  };
 }
 
 interface HeaderProps {

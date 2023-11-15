@@ -1,54 +1,42 @@
 import CharacterComponent from '../character/Character.component';
 import './Main.css';
-import { useContext, useEffect, useState } from 'react';
+import { useContext } from 'react';
 import { CharactersContext } from '../../contexts/CharactersContext';
 import { MainProps } from '../../shared/interfaces';
 import Loader from '../../UI/loader/Loader.component';
-import { useSearchParams } from 'react-router-dom';
 import { DetailsContext } from '../../contexts/DetailsContext';
-import { getCharacter } from '../../API/CharactersService';
 import DetailsComponent from '../details/DetailsComponent';
 
 const MainComponent = (props: MainProps) => {
   const { characters } = useContext(CharactersContext);
   const { detailsParam, setDetailsParams } = useContext(DetailsContext);
-  const [, setSearchParams] = useSearchParams();
-  const [isDetailsLoading, setIsDetailsLoading] = useState(false);
-  const [details, setDetails] = useState({
-    status: '',
-    species: '',
-    id: '',
-    location: '',
-    origin: '',
-    name: '',
-  });
 
   const hideDetails = () => {
     setDetailsParams(0);
   };
 
-  useEffect(() => {
-    if (detailsParam) {
-      setSearchParams((prevSearchParams) => {
-        prevSearchParams.set('details', `${detailsParam}`);
-        return prevSearchParams;
-      });
+  // useEffect(() => {
+  //   if (detailsParam) {
+  //     setSearchParams((prevSearchParams) => {
+  //       prevSearchParams.set('details', `${detailsParam}`);
+  //       return prevSearchParams;
+  //     });
 
-      setIsDetailsLoading(true);
-      getCharacter(detailsParam)
-        .then((character) => {
-          setDetails(character);
-        })
-        .finally(() => {
-          setIsDetailsLoading(false);
-        });
-    } else {
-      setSearchParams((prevSearchParams) => {
-        prevSearchParams.delete('details');
-        return prevSearchParams;
-      });
-    }
-  }, [detailsParam, setSearchParams]);
+  //     setIsDetailsLoading(true);
+  //     getCharacter(detailsParam)
+  //       .then((character) => {
+  //         setDetails(character);
+  //       })
+  //       .finally(() => {
+  //         setIsDetailsLoading(false);
+  //       });
+  //   } else {
+  //     setSearchParams((prevSearchParams) => {
+  //       prevSearchParams.delete('details');
+  //       return prevSearchParams;
+  //     });
+  //   }
+  // }, [detailsParam, props.setSearchParams]);
 
   return (
     <div className="main" onClick={hideDetails}>
@@ -77,10 +65,10 @@ const MainComponent = (props: MainProps) => {
         </div>
       )}
 
-      {isDetailsLoading ? (
+      {props.isDetailsLoading ? (
         <Loader />
       ) : detailsParam ? (
-        <DetailsComponent details={details} />
+        <DetailsComponent details={props.details} />
       ) : null}
     </div>
   );
