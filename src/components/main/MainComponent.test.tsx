@@ -88,4 +88,31 @@ describe('MainComponent', () => {
     const loaderElement = document.querySelectorAll('.loader');
     expect(loaderElement.length).toBe(1);
   });
+  
+  it('should show loader while fetching data for details', async () => {
+    render(
+      <CharactersContext.Provider
+        value={{ characters: [], setCharacters: () => {} }}
+      >
+        <DetailsContext.Provider
+          value={{ detailsParam: 1, setDetailsParams: () => {} }}
+        >
+          <MainComponent
+            isDetailsLoading={true}
+            isCharactersLoading={false}
+            details={{
+              status: '',
+              species: '',
+              id: '',
+              location: '',
+              origin: '',
+              name: '',
+            }}
+          />
+        </DetailsContext.Provider>
+      </CharactersContext.Provider>
+    );
+    const loaderElement = document.querySelectorAll('.loader');
+    expect(loaderElement.length).toBe(1);
+  });
 });

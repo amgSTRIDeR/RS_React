@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700058341654" clover="3.2.0">
-  <project timestamp="1700058341654" name="All files">
-    <metrics statements="59" coveredstatements="54" conditionals="14" coveredconditionals="9" methods="16" coveredmethods="9" elements="89" coveredelements="72" complexity="0" loc="59" ncloc="59" packages="6" files="9" classes="9"/>
+<coverage generated="1700059475345" clover="3.2.0">
+  <project timestamp="1700059475345" name="All files">
+    <metrics statements="59" coveredstatements="55" conditionals="14" coveredconditionals="10" methods="16" coveredmethods="10" elements="89" coveredelements="75" complexity="0" loc="59" ncloc="59" packages="6" files="9" classes="9"/>
     <package name="UI.loader">
-      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
       <file name="Loader.component.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\UI\loader\Loader.component.tsx">
-        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
       </file>
     </package>
@@ -40,9 +40,9 @@
       </file>
     </package>
     <package name="components.main">
-      <metrics statements="15" coveredstatements="14" conditionals="8" coveredconditionals="5" methods="3" coveredmethods="2"/>
+      <metrics statements="15" coveredstatements="14" conditionals="8" coveredconditionals="6" methods="3" coveredmethods="2"/>
       <file name="MainComponent.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\components\main\MainComponent.tsx">
-        <metrics statements="15" coveredstatements="14" conditionals="8" coveredconditionals="5" methods="3" coveredmethods="2"/>
+        <metrics statements="15" coveredstatements="14" conditionals="8" coveredconditionals="6" methods="3" coveredmethods="2"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
@@ -51,11 +51,11 @@
         <line num="7" count="1" type="stmt"/>
         <line num="8" count="1" type="stmt"/>
         <line num="10" count="1" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="2" type="stmt"/>
-        <line num="14" count="2" type="stmt"/>
+        <line num="11" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
+        <line num="14" count="3" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="18" count="2" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
         <line num="26" count="4" type="stmt"/>
         <line num="43" count="1" type="stmt"/>
       </file>
