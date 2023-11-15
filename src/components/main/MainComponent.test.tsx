@@ -3,6 +3,7 @@ import axios from '../../__mocks__/axios';
 import MainComponent from './MainComponent';
 import { CharactersContext } from '../../contexts/CharactersContext';
 import { ApiResponse } from '../../shared/interfaces';
+import { DetailsContext } from '../../contexts/DetailsContext';
 
 describe('MainComponent', () => {
   it('should render specific numbers of characters cards', async () => {
@@ -59,5 +60,32 @@ describe('MainComponent', () => {
         'Characters not foun'
       );
     });
+  });
+
+  it('should show loader while fetching data for details', async () => {
+    render(
+      <CharactersContext.Provider
+        value={{ characters: [], setCharacters: () => {} }}
+      >
+        <DetailsContext.Provider
+          value={{ detailsParam: 1, setDetailsParams: () => {} }}
+        >
+          <MainComponent
+            isDetailsLoading={true}
+            isCharactersLoading={false}
+            details={{
+              status: '',
+              species: '',
+              id: '',
+              location: '',
+              origin: '',
+              name: '',
+            }}
+          />
+        </DetailsContext.Provider>
+      </CharactersContext.Provider>
+    );
+    const loaderElement = document.querySelectorAll('.loader');
+    expect(loaderElement.length).toBe(1);
   });
 });
