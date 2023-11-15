@@ -20,7 +20,6 @@ export async function getCharacters(
     const characters = response.data;
     const amountCharacters = response.headers['x-total-count'];
     const pagesCount = Math.ceil(+amountCharacters / +charactersPerPage) || 1;
-
     return { characters: characters, pagesCount: pagesCount };
   } catch (error) {
     console.error(`Characters request error: ${error}`);
