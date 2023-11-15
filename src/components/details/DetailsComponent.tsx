@@ -15,19 +15,23 @@ const DetailsComponent = (props: Details) => {
       </div>
       <div className="details__info">
         <p>
-          <span className="details__text">Species</span>:&nbsp;
+          <span className="details__text">Species</span>
+          <span>: </span>
           {props.details.species}
         </p>
         <p>
-          <span className="details__text">Origin</span>:&nbsp;
+          <span className="details__text">Origin</span>
+          <span>: </span>
           {props.details.origin}
         </p>
         <p>
-          <span className="details__text">Location</span>:&nbsp;
+          <span className="details__text">Location</span>
+          <span>: </span>
           {props.details.location}
         </p>
         <p>
-          <span className="details__text">Status</span>:&nbsp;
+          <span className="details__text">Status</span>
+          <span>: </span>
           {props.details.status}
         </p>
       </div>

@@ -15,29 +15,6 @@ const MainComponent = (props: MainProps) => {
     setDetailsParams(0);
   };
 
-  // useEffect(() => {
-  //   if (detailsParam) {
-  //     setSearchParams((prevSearchParams) => {
-  //       prevSearchParams.set('details', `${detailsParam}`);
-  //       return prevSearchParams;
-  //     });
-
-  //     setIsDetailsLoading(true);
-  //     getCharacter(detailsParam)
-  //       .then((character) => {
-  //         setDetails(character);
-  //       })
-  //       .finally(() => {
-  //         setIsDetailsLoading(false);
-  //       });
-  //   } else {
-  //     setSearchParams((prevSearchParams) => {
-  //       prevSearchParams.delete('details');
-  //       return prevSearchParams;
-  //     });
-  //   }
-  // }, [detailsParam, props.setSearchParams]);
-
   return (
     <div className="main" onClick={hideDetails}>
       {props.isCharactersLoading ? (
@@ -45,20 +22,9 @@ const MainComponent = (props: MainProps) => {
       ) : (
         <div className="characters">
           {characters.length ? (
-            characters.map(
-              ({ id, name, status, species, image, location, origin }) => (
-                <CharacterComponent
-                  key={id}
-                  id={id}
-                  name={name}
-                  status={status}
-                  species={species}
-                  image={image}
-                  location={location}
-                  origin={origin}
-                />
-              )
-            )
+            characters.map(({ id, name }) => (
+              <CharacterComponent key={id} id={id} name={name} />
+            ))
           ) : (
             <p className="unfound-message">Characters not found</p>
           )}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700050438231" clover="3.2.0">
-  <project timestamp="1700050438231" name="All files">
-    <metrics statements="38" coveredstatements="32" conditionals="12" coveredconditionals="6" methods="10" coveredmethods="3" elements="60" coveredelements="41" complexity="0" loc="38" ncloc="38" packages="5" files="6" classes="6"/>
+<coverage generated="1700051898919" clover="3.2.0">
+  <project timestamp="1700051898919" name="All files">
+    <metrics statements="38" coveredstatements="33" conditionals="12" coveredconditionals="7" methods="10" coveredmethods="4" elements="60" coveredelements="44" complexity="0" loc="38" ncloc="38" packages="5" files="6" classes="6"/>
     <package name="UI.loader">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Loader.component.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\UI\loader\Loader.component.tsx">
@@ -20,23 +20,23 @@
         <line num="3" count="2" type="stmt"/>
         <line num="4" count="2" type="stmt"/>
         <line num="6" count="2" type="stmt"/>
-        <line num="7" count="6" type="stmt"/>
-        <line num="9" count="6" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
-        <line num="14" count="6" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
         <line num="28" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.details">
-      <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
       <file name="DetailsComponent.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\components\details\DetailsComponent.tsx">
-        <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="38" count="1" type="stmt"/>
+        <metrics statements="4" coveredstatements="4" conditionals="2" coveredconditionals="1" methods="1" coveredmethods="1"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="42" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.main">
@@ -55,9 +55,9 @@
         <line num="12" count="2" type="stmt"/>
         <line num="14" count="2" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="41" count="2" type="stmt"/>
-        <line num="50" count="4" type="stmt"/>
-        <line num="77" count="1" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="26" count="4" type="stmt"/>
+        <line num="43" count="1" type="stmt"/>
       </file>
     </package>
     <package name="contexts">
