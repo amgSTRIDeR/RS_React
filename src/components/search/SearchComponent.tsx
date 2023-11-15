@@ -6,7 +6,9 @@ import { PageContext } from '../../contexts/PageContext';
 function SearchComponent() {
   const { searchFilter, setSearchFilter } = useContext(SearchContext);
   const { setCurrentPage } = useContext(PageContext);
-  const [currentSearchFilter, setCurrentSearchFilter] = useState(searchFilter);
+  const [currentSearchFilter, setCurrentSearchFilter] = useState(
+    localStorage.getItem('searchFilter') || searchFilter
+  );
 
   const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
     event.preventDefault();

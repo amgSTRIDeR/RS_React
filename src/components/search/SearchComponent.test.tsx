@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react';
+import { render, fireEvent, waitFor } from '@testing-library/react';
 import SearchComponent from './SearchComponent';
 
 describe('Characters component', () => {
@@ -17,5 +17,19 @@ describe('Characters component', () => {
 
     searchButton.click();
     expect(localStorage.getItem('searchFilter')).toBe('Morty');
+  });
+
+  it('Search input retrieve information from the local storage', async () => {
+    waitFor(() => {
+      localStorage.setItem('searchFilter', 'Summer');
+    });
+
+    render(<SearchComponent />);
+
+    const searchInput = document.querySelector(
+      '.searchInput'
+    ) as HTMLInputElement;
+
+    expect(searchInput.value).toBe('Summer');
   });
 });

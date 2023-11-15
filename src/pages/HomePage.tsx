@@ -11,9 +11,7 @@ import { DetailsContext } from '../contexts/DetailsContext';
 import { useSearchParams } from 'react-router-dom';
 
 const Home = () => {
-  const [searchFilter, setSearchFilter] = useState(
-    localStorage.getItem('searchFilter') || ''
-  );
+  const [searchFilter, setSearchFilter] = useState('');
   const [charactersPerPage, setCharactersPerPage] = useState('10');
   const [currentPage, setCurrentPage] = useState(1);
   const [characters, setCharacters] = useState<Character[]>([]);

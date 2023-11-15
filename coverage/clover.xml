@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700057207674" clover="3.2.0">
-  <project timestamp="1700057207674" name="All files">
-    <metrics statements="59" coveredstatements="54" conditionals="12" coveredconditionals="7" methods="16" coveredmethods="9" elements="87" coveredelements="70" complexity="0" loc="59" ncloc="59" packages="6" files="9" classes="9"/>
+<coverage generated="1700058341654" clover="3.2.0">
+  <project timestamp="1700058341654" name="All files">
+    <metrics statements="59" coveredstatements="54" conditionals="14" coveredconditionals="9" methods="16" coveredmethods="9" elements="89" coveredelements="72" complexity="0" loc="59" ncloc="59" packages="6" files="9" classes="9"/>
     <package name="UI.loader">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Loader.component.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\UI\loader\Loader.component.tsx">
@@ -61,26 +61,26 @@
       </file>
     </package>
     <package name="components.search">
-      <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
       <file name="SearchComponent.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\components\search\SearchComponent.tsx">
-        <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <metrics statements="17" coveredstatements="17" conditionals="2" coveredconditionals="2" methods="3" coveredmethods="3"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
-        <line num="7" count="2" type="stmt"/>
-        <line num="8" count="2" type="stmt"/>
-        <line num="9" count="2" type="stmt"/>
-        <line num="11" count="2" type="stmt"/>
-        <line num="12" count="1" type="stmt"/>
-        <line num="13" count="1" type="stmt"/>
-        <line num="16" count="2" type="stmt"/>
-        <line num="17" count="1" type="stmt"/>
-        <line num="18" count="1" type="stmt"/>
+        <line num="7" count="3" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="15" count="1" type="stmt"/>
+        <line num="18" count="3" type="stmt"/>
         <line num="19" count="1" type="stmt"/>
         <line num="20" count="1" type="stmt"/>
-        <line num="23" count="2" type="stmt"/>
-        <line num="40" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+        <line num="22" count="1" type="stmt"/>
+        <line num="25" count="3" type="stmt"/>
+        <line num="42" count="1" type="stmt"/>
       </file>
     </package>
     <package name="contexts">
