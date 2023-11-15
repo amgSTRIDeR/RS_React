@@ -1,5 +1,5 @@
 import { CharacterProps } from '../../shared/interfaces';
-import './Character.css';
+import styles from './Character.module.css';
 import Image from '../image/Image.component';
 import { useContext } from 'react';
 import { DetailsContext } from '../../contexts/DetailsContext';
@@ -13,13 +13,13 @@ const CharacterComponent = (props: CharacterProps) => {
   };
 
   return (
-    <div className="character" onClick={(event) => addDetails(event)}>
+    <div className={styles.character} onClick={(event) => addDetails(event)}>
       <Image
-        className="character__image"
+        className={styles.character__image}
         src={`https://rickandmortyapi.com/api/character/avatar/${props.id}.jpeg`}
         alt={props.name}
       />
-      <h2 className="character__name">{props.name}</h2>
+      <h2 className={styles.character__name}>{props.name}</h2>
     </div>
   );
 };
