@@ -15,7 +15,9 @@ const CharacterComponent = (props: CharacterProps) => {
     <div className={styles.character} onClick={(event) => addDetails(event)}>
       <img
         className={styles.character__image}
-        src={`https://rickandmortyapi.com/api/character/avatar/${props.id}.jpeg`}
+        src={`https://rickandmortyapi.com/api/character/avatar/${
+          props.id || 1
+        }.jpeg`}
         alt={props.name}
       />
       <h2 className={styles.character__name}>{props.name}</h2>

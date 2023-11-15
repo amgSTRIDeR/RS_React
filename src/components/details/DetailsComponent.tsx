@@ -7,7 +7,9 @@ const DetailsComponent = (props: Details) => {
       <div>
         <img
           className="details__image"
-          src={`https://rickandmortyapi.com/api/character/avatar/${props.details.id}.jpeg`}
+          src={`https://rickandmortyapi.com/api/character/avatar/${
+            props.details.id || 1
+          }.jpeg`}
           alt={props.details.name}
         />
       </div>

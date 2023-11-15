@@ -1,4 +1,4 @@
-import CharacterComponent from '../character/Character.component';
+import CharacterComponent from '../character/CharacterComponent';
 import './Main.css';
 import { useContext } from 'react';
 import { CharactersContext } from '../../contexts/CharactersContext';
