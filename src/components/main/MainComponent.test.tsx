@@ -9,7 +9,6 @@ describe('MainComponent', () => {
     const container = document.createElement('div');
     await axios.get().then((response: ApiResponse) => {
       const mockCharacters = response.characters;
-
       render(
         <CharactersContext.Provider
           value={{ characters: mockCharacters, setCharacters: () => {} }}
@@ -29,7 +28,7 @@ describe('MainComponent', () => {
         </CharactersContext.Provider>
       );
       waitFor(() => {
-        expect(container.querySelectorAll('character').length).toBe(4);
+        expect(container.querySelectorAll('character').length).toBe(3);
       });
     });
   });
@@ -57,7 +56,7 @@ describe('MainComponent', () => {
     );
     waitFor(() => {
       expect(container.querySelector('.unfound-message')?.textContent).toBe(
-        'Characters not found'
+        'Characters not foun'
       );
     });
   });

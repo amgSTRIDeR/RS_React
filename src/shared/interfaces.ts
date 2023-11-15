@@ -43,10 +43,10 @@ interface ErrorBoundaryState {
 interface Character {
   id: number;
   name: string;
-  status: string;
-  species: string;
-  location: string;
-  origin: string;
+  status?: string;
+  species?: string;
+  location?: string;
+  origin?: string;
   image?: string;
 }
 interface Details {

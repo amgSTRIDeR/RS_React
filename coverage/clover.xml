@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700040454648" clover="3.2.0">
-  <project timestamp="1700040454648" name="All files">
-    <metrics statements="38" coveredstatements="32" conditionals="8" coveredconditionals="5" methods="10" coveredmethods="3" elements="56" coveredelements="40" complexity="0" loc="38" ncloc="38" packages="5" files="6" classes="6"/>
+<coverage generated="1700050438231" clover="3.2.0">
+  <project timestamp="1700050438231" name="All files">
+    <metrics statements="38" coveredstatements="32" conditionals="12" coveredconditionals="6" methods="10" coveredmethods="3" elements="60" coveredelements="41" complexity="0" loc="38" ncloc="38" packages="5" files="6" classes="6"/>
     <package name="UI.loader">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Loader.component.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\UI\loader\Loader.component.tsx">
@@ -13,30 +13,30 @@
       </file>
     </package>
     <package name="components.character">
-      <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-      <file name="Character.component.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\components\character\Character.component.tsx">
-        <metrics statements="11" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1"/>
-        <line num="2" count="1" type="stmt"/>
-        <line num="3" count="1" type="stmt"/>
-        <line num="4" count="1" type="stmt"/>
-        <line num="6" count="1" type="stmt"/>
-        <line num="7" count="4" type="stmt"/>
-        <line num="9" count="4" type="stmt"/>
+      <metrics statements="11" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+      <file name="CharacterComponent.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\components\character\CharacterComponent.tsx">
+        <metrics statements="11" coveredstatements="8" conditionals="2" coveredconditionals="1" methods="3" coveredmethods="1"/>
+        <line num="2" count="2" type="stmt"/>
+        <line num="3" count="2" type="stmt"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="6" count="2" type="stmt"/>
+        <line num="7" count="6" type="stmt"/>
+        <line num="9" count="6" type="stmt"/>
         <line num="10" count="0" type="stmt"/>
         <line num="11" count="0" type="stmt"/>
-        <line num="14" count="4" type="stmt"/>
+        <line num="14" count="6" type="stmt"/>
         <line num="15" count="0" type="stmt"/>
-        <line num="26" count="1" type="stmt"/>
+        <line num="28" count="2" type="stmt"/>
       </file>
     </package>
     <package name="components.details">
-      <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="DetailsComponent.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\components\details\DetailsComponent.tsx">
-        <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="3" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
         <line num="4" count="1" type="stmt"/>
         <line num="5" count="0" type="stmt"/>
-        <line num="36" count="1" type="stmt"/>
+        <line num="38" count="1" type="stmt"/>
       </file>
     </package>
     <package name="components.main">
@@ -69,8 +69,8 @@
       </file>
       <file name="DetailsContext.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\contexts\DetailsContext.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
-        <line num="1" count="1" type="stmt"/>
-        <line num="8" count="1" type="stmt"/>
+        <line num="1" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
       </file>
     </package>
   </project>
