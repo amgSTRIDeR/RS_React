@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1700051898919" clover="3.2.0">
-  <project timestamp="1700051898919" name="All files">
-    <metrics statements="38" coveredstatements="33" conditionals="12" coveredconditionals="7" methods="10" coveredmethods="4" elements="60" coveredelements="44" complexity="0" loc="38" ncloc="38" packages="5" files="6" classes="6"/>
+<coverage generated="1700057207674" clover="3.2.0">
+  <project timestamp="1700057207674" name="All files">
+    <metrics statements="59" coveredstatements="54" conditionals="12" coveredconditionals="7" methods="16" coveredmethods="9" elements="87" coveredelements="70" complexity="0" loc="59" ncloc="59" packages="6" files="9" classes="9"/>
     <package name="UI.loader">
       <metrics statements="4" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="Loader.component.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\UI\loader\Loader.component.tsx">
@@ -60,8 +60,31 @@
         <line num="43" count="1" type="stmt"/>
       </file>
     </package>
+    <package name="components.search">
+      <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+      <file name="SearchComponent.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\components\search\SearchComponent.tsx">
+        <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="3"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="1" type="stmt"/>
+        <line num="3" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="8" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="18" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="23" count="2" type="stmt"/>
+        <line num="40" count="1" type="stmt"/>
+      </file>
+    </package>
     <package name="contexts">
-      <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="8" coveredstatements="8" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="2"/>
       <file name="CharactersContext.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\contexts\CharactersContext.tsx">
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="1" type="stmt"/>
@@ -71,6 +94,16 @@
         <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
         <line num="1" count="2" type="stmt"/>
         <line num="8" count="2" type="stmt"/>
+      </file>
+      <file name="PageContext.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\contexts\PageContext.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
+      </file>
+      <file name="SearchContext.tsx" path="C:\Users\STRIDeR\Desktop\React\RS_React\src\contexts\SearchContext.tsx">
+        <metrics statements="2" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
     </package>
   </project>

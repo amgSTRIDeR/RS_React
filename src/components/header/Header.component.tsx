@@ -2,7 +2,7 @@ import { FormEvent, useContext, useState } from 'react';
 import ErrorButton from '../errorButton/ErrorButton.component';
 import './Header.css';
 import { useNavigate } from 'react-router-dom';
-import SearchComponent from '../seacrh/SearchComponent';
+import SearchComponent from '../search/SearchComponent';
 import { PageContext } from '../../contexts/PageContext';
 
 const HeaderComponent = () => {

@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for contexts/CharactersContext.tsx</title>
+    <title>Code coverage report for contexts/SearchContext.tsx</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../prettify.css" />
     <link rel="stylesheet" href="../base.css" />
@@ -19,7 +19,7 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../index.html">All files</a> / <a href="index.html">contexts</a> CharactersContext.tsx</h1>
+        <h1><a href="../index.html">All files</a> / <a href="index.html">contexts</a> SearchContext.tsx</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
@@ -37,9 +37,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>1/1</span>
             </div>
         
             
@@ -74,9 +74,7 @@
 <a name='L9'></a><a href='#L9'>9</a>
 <a name='L10'></a><a href='#L10'>10</a>
 <a name='L11'></a><a href='#L11'>11</a>
-<a name='L12'></a><a href='#L12'>12</a>
-<a name='L13'></a><a href='#L13'>13</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L12'></a><a href='#L12'>12</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">1x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -88,16 +86,15 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { createContext } from 'react';
-import { Character } from '../shared/interfaces';
 &nbsp;
-interface CharactersContextType {
-  characters: Character[];
-  setCharacters: React.Dispatch&lt;React.SetStateAction&lt;Character[]&gt;&gt;;
+interface SearchContextType {
+  searchFilter: string;
+  setSearchFilter: React.Dispatch&lt;React.SetStateAction&lt;string&gt;&gt;;
 }
 &nbsp;
-export const CharactersContext = createContext&lt;CharactersContextType&gt;({
-  characters: [],
-  setCharacters: <span class="fstat-no" title="function not covered" >() =</span>&gt; {},
+export const SearchContext = createContext&lt;SearchContextType&gt;({
+  searchFilter: '',
+  setSearchFilter: () =&gt; {},
 });
 &nbsp;</pre></td></tr></table></pre>
 

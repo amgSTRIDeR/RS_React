@@ -17,6 +17,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "declaration.d.ts"],
+  "include": ["src", "declaration.d.ts", "mockServiceWorker11.js"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
