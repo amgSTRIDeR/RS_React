@@ -67,7 +67,7 @@ const Home = () => {
         setIsCharactersLoading(false);
       });
 
-    if (currentPage > pagesCount) {
+    if (pagesCount > 0 && currentPage > pagesCount) {
       setCurrentPage(pagesCount);
     }
   }, [searchFilter, charactersPerPage, currentPage, pagesCount]);

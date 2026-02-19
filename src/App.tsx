@@ -1,7 +1,7 @@
 import './App.css';
 import ErrorBoundary from './components/errorBoundary/ErrorBoundary.component';
 import {
-  createBrowserRouter,
+  createHashRouter,
   Route,
   createRoutesFromElements,
   RouterProvider,
@@ -10,7 +10,7 @@ import HomePage from './pages/HomePage';
 import ErrorPage from './pages/ErrorPage';
 
 const App = () => {
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     createRoutesFromElements(
       <Route path="/">
         <Route path="/" element={<HomePage />} />
