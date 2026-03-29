@@ -1,0 +1,22 @@
+.button {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  background-color: #fdfffc;
+  color: #1d3557;
+  transition: all 0.3s ease-in-out;
+  user-select: none;
+}
+
+.button:hover {
+  box-shadow: 0 0 10px 5px #777777;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.button:active {
+  box-shadow: 0 0 5px 3px #000000;
+  scale: 0.95;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
